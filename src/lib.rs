@@ -1,31 +1,13 @@
 #![allow(dead_code)]
 mod test;
-use image::{ImageBuffer, Rgb, RgbImage};
+mod stereo;
 
+use image::{ImageBuffer, Rgb, RgbImage};
 use opencv::core::*;
 use opencv::prelude::*;
-
 use ndarray::{prelude::*,Array3};
 
 use std::convert::TryInto;
-use std::result::Result;
-use std::option::Option;
-
-#[repr(C)]
-#[derive(Debug)]
-pub struct xyz {
-    x: u32, y: u32, z: f32
-}
-
-#[no_mangle]
-pub unsafe extern "C" fn parse_xyz_data(ptr: *const xyz, length: u32) {
-    let v = std::slice::from_raw_parts(ptr, length.try_into().unwrap());
-    println!("The length of the read-in slice is: {}", v.len());
-    for i in 0..v.len() {
-        println!("{:?}",v[i]);
-    }
-}
-
 
 #[no_mangle]
 pub unsafe extern "C" fn parse_float_data(ptr: *const f32, length: u32) {
