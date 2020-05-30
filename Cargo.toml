@@ -1,0 +1,18 @@
+[package]
+name = "prscv"
+version = "0.1.0"
+authors = ["chrism <christophermoran@ucsb.edu>"]
+edition = "2018"
+
+[build-dependencies]
+cbindgen = "0.6.0"
+
+[lib]
+name = "prscv"
+crate-type = ["staticlib","cdylib"]
+
+[dependencies]
+libc = "0.2.66"
+image = "0.22.3"
+opencv = {version = "0.29", default-features = false, features = ["opencv-34"]}
+ndarray = "0.13"
