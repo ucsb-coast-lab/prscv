@@ -9,7 +9,7 @@ cbindgen = "0.6.0"
 
 [lib]
 name = "prscv"
-crate-type = ["staticlib","cdylib"]
+crate-type = ["rlib","staticlib","cdylib"]
 
 [dependencies]
 libc = "0.2.66"
