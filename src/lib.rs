@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 mod test;
-mod stereo;
+pub mod stereo;
 
 use image::{ImageBuffer, Rgb, RgbImage};
 use opencv::core::*;

@@ -25,7 +25,7 @@ pub unsafe extern "C" fn parse_xyz_data(ptr: *const xyz, length: u32) {
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn parse_stereo_data(ptr: *const xyz, length: u32) {
+pub unsafe extern "C" fn parse_stereo_data(ptr: *const StereoPixel, length: u32) {
     let v = std::slice::from_raw_parts(ptr, length.try_into().unwrap());
     println!("The length of the read-in slice is: {}", v.len());
     for i in 0..v.len() {
